@@ -1,0 +1,32 @@
+# 1. Python Program to Create a List of Tuples with the First Element as the Number and Second Element as the Square of the Number
+
+def create_tuple_list(n):
+    return [(i, i**2) for i in range(1, n + 1)]
+
+n = int(input("Enter a number: "))
+result = create_tuple_list(n)
+print("List of tuples:", result)
+
+# 2. Python Program to Remove All Tuples in a List Outside the Given Range
+
+def remove_tuples_outside_range(lst, start, end):
+    return [tup for tup in lst if start <= tup[0] <= end]
+
+# Sample list of tuples
+tuples_list = [(1, 1), (2, 4), (3, 9), (4, 16), (5, 25), (6, 36), (7, 49)]
+
+start = int(input("Enter the start range: "))
+end = int(input("Enter the end range: "))
+filtered_list = remove_tuples_outside_range(tuples_list, start, end)
+print("Filtered list:", filtered_list)
+
+# 3. Python Program to Sort a List of Tuples in Increasing Order by the Last Element in Each Tuple
+
+def sort_by_last_element(lst):
+    return sorted(lst, key=lambda x: x[1])
+
+# Sample list of tuples
+tuples_list = [(1, 2), (3, 1), (5, 3), (4, 4)]
+
+sorted_list = sort_by_last_element(tuples_list)
+print("Sorted list:", sorted_list)

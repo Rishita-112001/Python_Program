@@ -1,0 +1,251 @@
+#Python Program to Check Whether a Given Number is Even or Odd using Recursion
+
+def is_even_or_odd(n):
+    if n == 0:
+        return "Even"
+    elif n == 1:
+        return "Odd"
+    else:
+        return is_even_or_odd(abs(n) - 2)
+
+number = int(input("Enter a number: "))
+print(is_even_or_odd(number))
+
+#Python Program to Check Whether a Number is Positive or Negative
+
+def check_number(num):
+    if num > 0:
+        return "Positive"
+    elif num < 0:
+        return "Negative"
+    else:
+        return "Zero"
+
+number = float(input("Enter a number: "))
+print(check_number(number))
+
+# Python Program to Print All Odd Numbers in a Range
+
+def print_odd_numbers(start, end):
+    for num in range(start, end + 1):
+        if num % 2 != 0:
+            print(num, end=" ")
+
+start = int(input("Enter the start of the range: "))
+end = int(input("Enter the end of the range: "))
+print_odd_numbers(start, end)
+
+#Python Program to Check if a Number is a Palindrome
+
+def is_palindrome(num):
+    return str(num) == str(num)[::-1]
+
+number = int(input("Enter a number: "))
+if is_palindrome(number):
+    print("Palindrome")
+else:
+    print("Not Palindrome")
+
+# Python Program to Reverse a Number
+
+def reverse_number(num):
+    return int(str(num)[::-1])
+
+number = int(input("Enter a number: "))
+print(f"Reversed number: {reverse_number(number)}")
+
+#Python Program to Print All Integers that Aren’t Divisible by Either 2 or 3
+
+def print_numbers(start, end):
+    for num in range(start, end + 1):
+        if num % 2 != 0 and num % 3 != 0:
+            print(num, end=" ")
+
+start = int(input("Enter the start of the range: "))
+end = int(input("Enter the end of the range: "))
+print_numbers(start, end)
+
+# Python Program to Find Numbers Divisible by 7 and Multiple of 5 in a Given Range
+
+def find_numbers(start, end):
+    for num in range(start, end + 1):
+        if num % 7 == 0 and num % 5 == 0:
+            print(num, end=" ")
+
+start = int(input("Enter the start of the range: "))
+end = int(input("Enter the end of the range: "))
+find_numbers(start, end)
+
+#Python Program to Print All Numbers in a Range Divisible by a Given Number
+
+def print_divisible_numbers(start, end, divisor):
+    for num in range(start, end + 1):
+        if num % divisor == 0:
+            print(num, end=" ")
+
+start = int(input("Enter the start of the range: "))
+end = int(input("Enter the end of the range: "))
+divisor = int(input("Enter the divisor: "))
+print_divisible_numbers(start, end, divisor)
+
+#Python Program to Find Sum of Digits of a Number
+
+def sum_of_digits(num):
+    return sum(int(digit) for digit in str(num))
+
+number = int(input("Enter a number: "))
+print(f"Sum of digits: {sum_of_digits(number)}")
+
+#Python Program to Find Sum of Digit of a Number using Recursion
+
+def sum_of_digits_recursive(num):
+    if num == 0:
+        return 0
+    return num % 10 + sum_of_digits_recursive(num // 10)
+
+number = int(input("Enter a number: "))
+print(f"Sum of digits: {sum_of_digits_recursive(number)}")
+
+#Python Program to Find Sum of Digit of a Number Without Recursion
+
+def sum_of_digits_without_recursion(num):
+    total = 0
+    while num > 0:
+        total += num % 10
+        num //= 10
+    return total
+
+number = int(input("Enter a number: "))
+print(f"Sum of digits: {sum_of_digits_without_recursion(number)}")
+
+#Python Program to Count the Number of Digits in a Number
+
+def count_digits(num):
+    return len(str(abs(num)))
+
+number = int(input("Enter a number: "))
+print(f"Number of digits: {count_digits(number)}")
+
+#Python Program to Find All the Divisors of an Integer
+
+def divisors(num):
+    divisors_list = []
+    for i in range(1, num + 1):
+        if num % i == 0:
+            divisors_list.append(i)
+    return divisors_list
+
+number = int(input("Enter a number: "))
+print(f"Divisors of {number}: {divisors(number)}")
+
+#Python Program to Find the Smallest Divisor of an Integer
+
+def smallest_divisor(num):
+    for i in range(2, num + 1):
+        if num % i == 0:
+            return i
+    return num
+
+number = int(input("Enter a number: "))
+print(f"Smallest divisor of {number}: {smallest_divisor(number)}")
+
+#Python Program to Print Binary Equivalent of an Integer using Recursion
+
+def to_binary(n):
+    if n > 1:
+        to_binary(n // 2)
+    print(n % 2, end="")
+
+number = int(input("Enter a number: "))
+print("Binary equivalent:", end=" ")
+to_binary(number)
+print()
+
+#Python Program to Print Binary Equivalent of a Number without Using Recursion
+
+def to_binary_without_recursion(n):
+    return bin(n).replace("0b", "")
+
+number = int(input("Enter a number: "))
+print(f"Binary equivalent: {to_binary_without_recursion(number)}")
+
+#Python Program to Print Table of a Given Number
+
+def print_table(num):
+    for i in range(1, 11):
+        print(f"{num} x {i} = {num * i}")
+
+number = int(input("Enter a number: "))
+print_table(number)
+
+#Python Program to Calculate Grade of a Student
+
+def calculate_grade(marks):
+    if marks >= 90:
+        return "A"
+    elif marks >= 80:
+        return "B"
+    elif marks >= 70:
+        return "C"
+    elif marks >= 60:
+        return "D"
+    else:
+        return "F"
+
+marks = float(input("Enter marks: "))
+print(f"Grade: {calculate_grade(marks)}")
+
+#Python Program to Check if a Date is Valid and Print the Incremented Date if it is
+
+from datetime import datetime, timedelta
+
+def is_valid_date(date_str):
+    try:
+        date = datetime.strptime(date_str, "%d-%m-%Y")
+        return date
+    except ValueError:
+        return None
+
+date_input = input("Enter date in dd-mm-yyyy format: ")
+date = is_valid_date(date_input)
+if date:
+    print("Valid date:", date.strftime("%d-%m-%Y"))
+    incremented_date = date + timedelta(days=1)
+    print("Incremented date:", incremented_date.strftime("%d-%m-%Y"))
+else:
+    print("Invalid date format!")
+
+# Python Program to Check Whether a given Year is a Leap Year
+
+def is_leap_year(year):
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        return True
+    else:
+        return False
+
+year = int(input("Enter a year: "))
+if is_leap_year(year):
+    print(f"{year} is a leap year")
+else:
+    print(f"{year} is not a leap year")
+
+#Python Program to Convert Centimeters to Feet and Inches
+
+def cm_to_feet_inches(cm):
+    feet = cm // 30.48
+    inches = (cm % 30.48) / 2.54
+    return feet, inches
+
+cm = float(input("Enter length in centimeters: "))
+feet, inches = cm_to_feet_inches(cm)
+print(f"{cm} cm is equal to {int(feet)} feet and {inches:.2f} inches.")
+
+#Python Program to Read a Number n and Compute n + nn + nnn
+
+def compute_expression(n):
+    nn = int(str(n) * 2)
+    nnn = int(str(n) * 3)
+    return n + nn + nnn
+
+n = int(input("Enter a number: "))
+print(f"Result: {compute_expression(n)}")

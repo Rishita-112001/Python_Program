@@ -1,0 +1,21 @@
+# 1. Python Program to Print an Inverted Star Pattern
+
+def inverted_star_pattern(n):
+    for i in range(n, 0, -1):
+        print("*" * i)
+
+n = int(input("Enter the number of rows: "))
+inverted_star_pattern(n)
+
+# 2. Python Program to Print Pascal's Triangle
+
+def pascal_triangle(n):
+    for row in range(n):
+        num = 1
+        for col in range(row + 1):
+            print(num, end=" ")
+            num = num * (row - col) // (col + 1)
+        print()
+
+n = int(input("Enter the number of rows for Pascal's Triangle: "))
+pascal_triangle(n)

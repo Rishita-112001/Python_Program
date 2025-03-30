@@ -1,0 +1,212 @@
+#1. Python Program to Find Prime Numbers in a Given Range
+
+def prime_numbers_in_range(start, end):
+    for num in range(start, end + 1):
+        if num > 1:
+            for i in range(2, num):
+                if num % i == 0:
+                    break
+            else:
+                print(num, end=" ")
+
+start = int(input("Enter the start of the range: "))
+end = int(input("Enter the end of the range: "))
+prime_numbers_in_range(start, end)
+
+# 2. Python Program to Check Prime Number
+
+def is_prime(num):
+    if num <= 1:
+        return False
+    for i in range(2, num):
+        if num % i == 0:
+            return False
+    return True
+
+number = int(input("Enter a number: "))
+if is_prime(number):
+    print(f"{number} is a prime number")
+else:
+    print(f"{number} is not a prime number")
+
+# 3. Python Program to Check Whether a Number is Prime or Not using Recursion
+
+def is_prime_recursive(num, divisor=2):
+    if num <= 1:
+        return False
+    if divisor == num:
+        return True
+    if num % divisor == 0:
+        return False
+    return is_prime_recursive(num, divisor + 1)
+
+number = int(input("Enter a number: "))
+if is_prime_recursive(number):
+    print(f"{number} is a prime number")
+else:
+    print(f"{number} is not a prime number")
+
+# 4. Python Program to Check Whether a Given Number is Perfect Number
+
+def is_perfect_number(num):
+    divisors_sum = sum(i for i in range(1, num) if num % i == 0)
+    return divisors_sum == num
+
+number = int(input("Enter a number: "))
+if is_perfect_number(number):
+    print(f"{number} is a perfect number")
+else:
+    print(f"{number} is not a perfect number")
+
+# 5. Python Program to Check Armstrong Number
+
+def is_armstrong(num):
+    num_str = str(num)
+    power = len(num_str)
+    total = sum(int(digit) ** power for digit in num_str)
+    return total == num
+
+number = int(input("Enter a number: "))
+if is_armstrong(number):
+    print(f"{number} is an Armstrong number")
+else:
+    print(f"{number} is not an Armstrong number")
+
+# 6. Python Program to Find Sum of First N Natural Numbers
+
+def sum_of_natural_numbers(n):
+    return n * (n + 1) // 2
+
+n = int(input("Enter a number: "))
+print(f"Sum of first {n} natural numbers is {sum_of_natural_numbers(n)}")
+
+# 7. Python Program to Check if a Number is a Strong Number
+
+def is_strong_number(num):
+    total = 0
+    temp = num
+    while temp > 0:
+        digit = temp % 10
+        total += factorial(digit)
+        temp //= 10
+    return total == num
+
+def factorial(n):
+    return 1 if n == 0 else n * factorial(n - 1)
+
+number = int(input("Enter a number: "))
+if is_strong_number(number):
+    print(f"{number} is a strong number")
+else:
+    print(f"{number} is not a strong number")
+
+# 8. Python Program to Print Numbers in a Range Without Using Loops
+
+def print_range(start, end):
+    if start <= end:
+        print(start, end=" ")
+        print_range(start + 1, end)
+
+start = int(input("Enter the start of the range: "))
+end = int(input("Enter the end of the range: "))
+print_range(start, end)
+
+# 9. Python Program to Print the Natural Numbers Summation Pattern
+
+def print_summation_pattern(n):
+    for i in range(1, n + 1):
+        print("".join(str(x) for x in range(1, i + 1)))
+
+n = int(input("Enter a number: "))
+print_summation_pattern(n)
+
+# 10. Python Program to Find the Prime Factors of a Number
+
+def prime_factors(num):
+    factors = []
+    i = 2
+    while i * i <= num:
+        while num % i == 0:
+            factors.append(i)
+            num //= i
+        i += 1
+    if num > 1:
+        factors.append(num)
+    return factors
+
+number = int(input("Enter a number: "))
+print(f"Prime factors of {number}: {prime_factors(number)}")
+
+# 11. Python Program to Check If Two Numbers are Amicable Numbers or Not
+
+def sum_of_divisors(num):
+    return sum(i for i in range(1, num) if num % i == 0)
+
+def are_amicable(num1, num2):
+    return sum_of_divisors(num1) == num2 and sum_of_divisors(num2) == num1
+
+num1 = int(input("Enter the first number: "))
+num2 = int(input("Enter the second number: "))
+if are_amicable(num1, num2):
+    print(f"{num1} and {num2} are amicable numbers")
+else:
+    print(f"{num1} and {num2} are not amicable numbers")
+
+# 12. Python Program to Find Whether a Number is a Power of Two
+
+def is_power_of_two(n):
+    return (n > 0) and (n & (n - 1)) == 0
+
+number = int(input("Enter a number: "))
+if is_power_of_two(number):
+    print(f"{number} is a power of two")
+else:
+    print(f"{number} is not a power of two")
+
+# 13. Python Program to Calculate the Power using Recursion
+
+def power(x, n):
+    if n == 0:
+        return 1
+    return x * power(x, n - 1)
+
+base = int(input("Enter the base: "))
+exponent = int(input("Enter the exponent: "))
+print(f"{base} raised to the power {exponent} is {power(base, exponent)}")
+
+# 14. Python Program to Find Product of Two Numbers using Recursion
+
+def product(a, b):
+    if b == 0:
+        return 0
+    return a + product(a, b - 1)
+
+number1 = int(input("Enter the first number: "))
+number2 = int(input("Enter the second number: "))
+print(f"Product of {number1} and {number2} is {product(number1, number2)}")
+
+# 15. Python Program to Find All Perfect Squares in the Given Range
+
+import math
+
+def perfect_squares_in_range(start, end):
+    for num in range(start, end + 1):
+        if math.isqrt(num) ** 2 == num:
+            print(num, end=" ")
+
+start = int(input("Enter the start of the range: "))
+end = int(input("Enter the end of the range: "))
+perfect_squares_in_range(start, end)
+
+# 16. Python Program to Print All Possible Combinations of Three Digits
+
+from itertools import permutations
+
+def print_combinations():
+    digits = '0123456789'
+    comb = permutations(digits, 3)
+    for c in comb:
+        print("".join(c), end=" ")
+
+print_combinations()
+

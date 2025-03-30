@@ -1,0 +1,139 @@
+# 1. Python Program to Create a Class which Performs Basic Calculator Operations
+
+class Calculator:
+    def add(self, a, b):
+        return a + b
+    
+    def subtract(self, a, b):
+        return a - b
+    
+    def multiply(self, a, b):
+        return a * b
+    
+    def divide(self, a, b):
+        if b != 0:
+            return a / b
+        else:
+            return "Cannot divide by zero"
+
+# Create an object of the class
+calc = Calculator()
+
+# User input and operations
+a = float(input("Enter first number: "))
+b = float(input("Enter second number: "))
+
+print(f"Addition: {calc.add(a, b)}")
+print(f"Subtraction: {calc.subtract(a, b)}")
+print(f"Multiplication: {calc.multiply(a, b)}")
+print(f"Division: {calc.divide(a, b)}")
+
+# 2. Python Program to Append, Delete and Display Elements of a List using Classes
+
+class ListOperations:
+    def __init__(self):
+        self.my_list = []
+    
+    def append_element(self, element):
+        self.my_list.append(element)
+    
+    def delete_element(self, element):
+        if element in self.my_list:
+            self.my_list.remove(element)
+        else:
+            print(f"{element} not found in the list")
+    
+    def display_list(self):
+        print("Current List:", self.my_list)
+
+# Create an object of the class
+list_ops = ListOperations()
+
+# Operations
+list_ops.append_element(10)
+list_ops.append_element(20)
+list_ops.append_element(30)
+list_ops.display_list()
+
+list_ops.delete_element(20)
+list_ops.display_list()
+
+list_ops.delete_element(40)
+
+# 3. Python Program to Find the Area of a Rectangle using Classes
+
+class Rectangle:
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+    
+    def area(self):
+        return self.length * self.width
+
+# Create an object of the class
+rect = Rectangle(5, 10)
+print(f"Area of the rectangle: {rect.area()}")
+
+# 4. Python Program to Find the Area and Perimeter of the Circle using Class
+
+import math
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+    
+    def area(self):
+        return math.pi * self.radius ** 2
+    
+    def perimeter(self):
+        return 2 * math.pi * self.radius
+
+# Create an object of the class
+circle = Circle(7)
+print(f"Area of the circle: {circle.area()}")
+print(f"Perimeter of the circle: {circle.perimeter()}")
+
+# 5. Python Program to Create a Class in which One Method Accepts a String from the User and Another Prints it
+
+class StringOperations:
+    def __init__(self):
+        self.user_string = ""
+    
+    def accept_string(self):
+        self.user_string = input("Enter a string: ")
+    
+    def print_string(self):
+        print("User entered string:", self.user_string)
+
+# Create an object of the class
+str_ops = StringOperations()
+
+# Operations
+str_ops.accept_string()
+str_ops.print_string()
+
+# 6. Python Program to Create a Class and Get All Possible Distinct Subsets from a Set
+
+class Subsets:
+    def __init__(self, input_set):
+        self.input_set = input_set
+    
+    def get_subsets(self):
+        subsets = []
+        input_set_list = list(self.input_set)
+        for i in range(2**len(input_set_list)):
+            subset = []
+            for j in range(len(input_set_list)):
+                if i & (1 << j):
+                    subset.append(input_set_list[j])
+            subsets.append(subset)
+        return subsets
+
+# Create an object of the class
+input_set = {1, 2, 3}
+subset_obj = Subsets(input_set)
+
+# Get and display all subsets
+subsets = subset_obj.get_subsets()
+print("All possible distinct subsets:", subsets)
+

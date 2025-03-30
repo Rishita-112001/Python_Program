@@ -1,0 +1,148 @@
+# 1. Python Program to Find Largest Number in a List
+
+def find_largest_number(lst):
+    return max(lst)
+
+# Example
+numbers = [10, 20, 4, 45, 99]
+print("Largest number:", find_largest_number(numbers))
+
+# 2. Python Program to Find Second Largest Number in a List
+
+def find_second_largest_number(lst):
+    unique_lst = list(set(lst))  # Remove duplicates
+    unique_lst.sort()
+    return unique_lst[-2] if len(unique_lst) > 1 else None
+
+# Example
+numbers = [10, 20, 4, 45, 99, 45]
+print("Second largest number:", find_second_largest_number(numbers))
+
+# 3. Python Program to Print Largest Even and Largest Odd Number in a List
+
+def find_largest_even_odd(lst):
+    even_numbers = [num for num in lst if num % 2 == 0]
+    odd_numbers = [num for num in lst if num % 2 != 0]
+    
+    largest_even = max(even_numbers) if even_numbers else None
+    largest_odd = max(odd_numbers) if odd_numbers else None
+    
+    return largest_even, largest_odd
+
+# Example
+numbers = [10, 20, 4, 45, 99, 77]
+largest_even, largest_odd = find_largest_even_odd(numbers)
+print("Largest even number:", largest_even)
+print("Largest odd number:", largest_odd)
+
+# 4. Python Program to Split Even and Odd Elements into Two Lists
+
+def split_even_odd(lst):
+    even_numbers = [num for num in lst if num % 2 == 0]
+    odd_numbers = [num for num in lst if num % 2 != 0]
+    return even_numbers, odd_numbers
+
+# Example
+numbers = [10, 20, 4, 45, 99, 77]
+even_list, odd_list = split_even_odd(numbers)
+print("Even numbers:", even_list)
+print("Odd numbers:", odd_list)
+
+# 5. Python Program to Find Average of a List
+
+def find_average(lst):
+    return sum(lst) / len(lst) if lst else None
+
+# Example
+numbers = [10, 20, 30, 40, 50]
+print("Average:", find_average(numbers))
+
+# 6. Python Program to Print Sum of Negative Numbers, Positive Even & Odd Numbers in a List
+
+def sum_of_numbers(lst):
+    negative_sum = sum(num for num in lst if num < 0)
+    positive_even_sum = sum(num for num in lst if num > 0 and num % 2 == 0)
+    positive_odd_sum = sum(num for num in lst if num > 0 and num % 2 != 0)
+    return negative_sum, positive_even_sum, positive_odd_sum
+
+# Example
+numbers = [10, -5, 20, -3, 45, 99, 60, -10]
+negative_sum, positive_even_sum, positive_odd_sum = sum_of_numbers(numbers)
+print("Sum of negative numbers:", negative_sum)
+print("Sum of positive even numbers:", positive_even_sum)
+print("Sum of positive odd numbers:", positive_odd_sum)
+
+# 7. Python Program to Count Occurrences of Element in List
+
+def count_occurrences(lst, element):
+    return lst.count(element)
+
+# Example
+numbers = [10, 20, 30, 10, 50, 10]
+element = 10
+print(f"Occurrences of {element}: {count_occurrences(numbers, element)}")
+
+# 8.  Python Program to Find the Sum of Elements in a List using Recursion
+
+def sum_of_elements(lst):
+    if len(lst) == 0:
+        return 0
+    else:
+        return lst[0] + sum_of_elements(lst[1:])
+
+# Example
+numbers = [10, 20, 30, 40, 50]
+print("Sum of elements:", sum_of_elements(numbers))
+
+# 9.Python Program to Find the Length of a List using Recursion
+
+def length_of_list(lst):
+    if not lst:
+        return 0
+    else:
+        return 1 + length_of_list(lst[1:])
+
+# Example
+numbers = [10, 20, 30, 40, 50]
+print("Length of the list:", length_of_list(numbers))
+
+# 10. Python Program to Merge Two Lists and Sort it
+
+def merge_and_sort_lists(list1, list2):
+    merged_list = list1 + list2
+    merged_list.sort()
+    return merged_list
+
+# Example
+list1 = [3, 1, 4, 1]
+list2 = [5, 9, 2, 6]
+print("Merged and sorted list:", merge_and_sort_lists(list1, list2))
+
+# 11. Python Program to Remove Duplicates from a List
+
+def remove_duplicates(lst):
+    return list(set(lst))
+
+# Example
+numbers = [10, 20, 30, 20, 10, 40]
+print("List without duplicates:", remove_duplicates(numbers))
+
+# 12.Python Program to Swap the First and Last Element in a List
+
+def swap_first_last(lst):
+    if len(lst) > 1:
+        lst[0], lst[-1] = lst[-1], lst[0]
+    return lst
+
+# Example
+numbers = [10, 20, 30, 40, 50]
+print("List after swapping first and last elements:", swap_first_last(numbers))
+
+# 13. Python Program to Sort a List According to the Second Element in Sublist
+
+def sort_by_second_element(lst):
+    return sorted(lst, key=lambda x: x[1])
+
+# Example
+sublist = [(1, 3), (2, 2), (3, 1), (4, 4)]
+print("List sorted by second element:", sort_by_second_element(sublist))

@@ -1,0 +1,6 @@
+f = 1
+n = 0 
+for i in range(10):
+    print(n, "! = ", f)
+    n += 1
+    f *= n
